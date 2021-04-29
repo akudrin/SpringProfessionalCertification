@@ -6,7 +6,11 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-
+    
+    
+    <!-- load the properties file: sport.properties -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+	
 	<!-- Define your beans here -->
 	<!-- Add a logger configuration file to see logging messages. - For more detailed logs, 
 		set values to "FINEST" - For info on logging levels, see: http://www.vogella.com/tutorials/Logging/article.html -->
@@ -28,8 +32,8 @@
 	<bean id="myCricketCoach" class="com.akudrin.springdemo.CricketCoach">
 	<!-- setup setter injection -->
 	<property name="fortuneService" ref="myFortune"></property>
-	<property name="emailAddress" value="test@akudrin.com"></property>
-	<property name="team" value="Sunrisers"></property>
+	<property name="emailAddress" value="${foo.email}"></property>
+	<property name="team" value="${foo.team}"></property>
 	</bean>
 
 </beans>
