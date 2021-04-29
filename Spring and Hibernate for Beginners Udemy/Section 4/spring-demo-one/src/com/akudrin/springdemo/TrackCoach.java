@@ -26,8 +26,4 @@ public class TrackCoach implements Coach {
 		return "Run 5k";
 	}
 
-	public String test() {
-		return "Test";
-	}
-
 }
