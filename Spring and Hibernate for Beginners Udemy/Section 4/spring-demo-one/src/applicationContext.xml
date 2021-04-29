@@ -27,7 +27,9 @@
 	
 	<bean id="myCricketCoach" class="com.akudrin.springdemo.CricketCoach">
 	<!-- setup setter injection -->
-	<property name="fortuneService" ref="myFortuneService"></property>
+	<property name="fortuneService" ref="myFortune"></property>
+	<property name="emailAddress" value="test@akudrin.com"></property>
+	<property name="team" value="Sunrisers"></property>
 	</bean>
 
 </beans>
