@@ -26,4 +26,14 @@ public class TrackCoach implements Coach {
 		return "Run 5k";
 	}
 
+	// add init method for bean lifecycle
+	public void doMyStartupStuff() {
+		System.out.println("Trackcoach: inside method doMyStartupStauff");
+	}
+
+	// add destroy method for bean lifecycle
+	public void doMyCleanupStuff() {
+		System.out.println("Trackcoach: inside method doMyCleanupStauff");
+	}
+
 }
