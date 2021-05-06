@@ -33,6 +33,11 @@
 	<bean id="customProcessor"
 		class="com.akudrin.springdemo.MyCustomBeanProcessor">
 	</bean>
+	
+	<bean id="myCricketCoach" class="com.akudrin.springdemo.CricketCoach"
+		init-method="doMyStartupStuff" destroy-method="doMyCleanupStuff"><!-- setup constructor injection -->
+		<constructor-arg ref="myFortune"></constructor-arg>
+	</bean>
 
 
 </beans>

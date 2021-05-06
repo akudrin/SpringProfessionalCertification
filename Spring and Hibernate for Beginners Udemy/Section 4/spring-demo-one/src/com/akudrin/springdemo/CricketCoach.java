@@ -8,6 +8,12 @@ public class CricketCoach implements Coach {
 	// define a private field for the dependency
 	private FortuneService fortuneService;
 
+	// define constructor for the dependency injection
+	public CricketCoach(FortuneService theFortuneService) {
+
+		fortuneService = theFortuneService;
+	}
+
 	public CricketCoach() {
 		System.out.println("CricketCoach: inside no-arg constructor");
 	}
@@ -45,6 +51,16 @@ public class CricketCoach implements Coach {
 	public String getDailyFortune() {
 
 		return fortuneService.getFortune();
+	}
+
+	// add init method for bean lifecycle
+	public void doMyStartupStuff() {
+		System.out.println("Cricketcoach: inside method doMyStartupStauff");
+	}
+
+	// add destroy method for bean lifecycle
+	public void doMyCleanupStuff() {
+		System.out.println("Cricketcoach: inside method doMyCleanupStauff");
 	}
 
 }
