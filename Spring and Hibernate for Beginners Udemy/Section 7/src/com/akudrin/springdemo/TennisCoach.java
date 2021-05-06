@@ -1,12 +1,14 @@
 package com.akudrin.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component // using default beanID tennisCoach
 public class TennisCoach implements Coach {
 
 	@Autowired
+	@Qualifier("randomService")
 	private FortuneService fortuneService;
 
 	public TennisCoach() {
