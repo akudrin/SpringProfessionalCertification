@@ -1,6 +1,8 @@
 package com.akudrin.springdemo;
 
-public class TrackCoach implements Coach {
+import org.springframework.beans.factory.DisposableBean;
+
+public class TrackCoach implements Coach, DisposableBean {
 
 	// define a private field for the dependency
 	private FortuneService fortuneService;
@@ -34,6 +36,12 @@ public class TrackCoach implements Coach {
 	// add destroy method for bean lifecycle
 	public void doMyCleanupStuff() {
 		System.out.println("Trackcoach: inside method doMyCleanupStauff");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("TrackCoach: inside method doMyCleanupStuffYoYo");
+
 	}
 
 }
