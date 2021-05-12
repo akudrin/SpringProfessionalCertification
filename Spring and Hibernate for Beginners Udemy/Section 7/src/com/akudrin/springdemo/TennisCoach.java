@@ -1,10 +1,15 @@
 package com.akudrin.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component // using default beanID tennisCoach
+@Scope("prototype")
 public class TennisCoach implements Coach {
 
 	@Autowired
@@ -36,6 +41,19 @@ public class TennisCoach implements Coach {
 	@Override
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
+	}
+
+	@PostConstruct
+	void populateCache() {
+		System.out.println("PostConstruct");
+
+	}
+
+	// For "prototype" scoped beans, Spring does not call the @PreDestroy method
+	@PreDestroy
+	void flushCache() {
+		System.out.println("PreDestroy");
+
 	}
 
 }
