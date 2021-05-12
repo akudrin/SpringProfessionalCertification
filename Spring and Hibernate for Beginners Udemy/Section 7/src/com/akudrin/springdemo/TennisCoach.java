@@ -3,6 +3,7 @@ package com.akudrin.springdemo;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component // using default beanID tennisCoach
 @Scope("prototype")
-public class TennisCoach implements Coach {
+public class TennisCoach implements Coach, DisposableBean {
 
 	@Autowired
 	@Qualifier("randomService")
@@ -53,6 +54,12 @@ public class TennisCoach implements Coach {
 	@PreDestroy
 	void flushCache() {
 		System.out.println("PreDestroy");
+
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("PreDestroy with Scope prototype");
 
 	}
 
