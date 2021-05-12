@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach, DisposableBean {
 
 	@Autowired
-	@Qualifier("randomService")
+	@Qualifier("fileFortuneService")
 	private FortuneService fortuneService;
 
 	public TennisCoach() {
