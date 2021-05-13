@@ -4,22 +4,24 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component // using default beanID tennisCoach
-@Scope("prototype")
+//@Scope("prototype")
 public class TennisCoach implements Coach, DisposableBean {
 
-	@Autowired
-	@Qualifier("fileFortuneService")
+	// @Autowired
+	// @Qualifier("fileFortuneService")
 	private FortuneService fortuneService;
 
 	public TennisCoach() {
 
 		System.out.println("TennisCoach: inside default constructor");
+	}
+
+	public TennisCoach(FortuneService theFortuneService) {
+		fortuneService = theFortuneService;
+
 	}
 
 	/*

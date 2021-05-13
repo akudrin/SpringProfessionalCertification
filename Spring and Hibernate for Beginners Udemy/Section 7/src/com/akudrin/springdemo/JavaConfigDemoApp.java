@@ -15,6 +15,16 @@ public class JavaConfigDemoApp {
 		// call a method on the bean
 		System.out.println(theCoach.getDailyWorkout());
 		System.out.println(theCoach.getDailyFortune());
+
+		// get the bean from spring container
+		Coach footballCoach = context.getBean("footballCoach", Coach.class);
+
+		// call a method on the bean
+		System.out.println(footballCoach.getDailyWorkout());
+
+		// call a method on the bean
+		System.out.println(footballCoach.getDailyFortune());
+
 		// close the context
 		context.close();
 	}
