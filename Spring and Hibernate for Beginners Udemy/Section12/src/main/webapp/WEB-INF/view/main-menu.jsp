@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" 
+		  href="${pageContext.request.contextPath}/resources/css/my-test.css">
+
+    <script src="${pageContext.request.contextPath}/resources/js/simple-test.js"></script>
 </head>
 <body>
 <h2>hello</h2>
+<img src="${pageContext.request.contextPath}/resources/images/logo.svg" />
     <hr>
     <a href="showForm">Hello World Form</a>
+    <br><br>
+
+<input type="button" onclick="doSomeWork()" value="Click Me"/>
 </body>
 </html>
