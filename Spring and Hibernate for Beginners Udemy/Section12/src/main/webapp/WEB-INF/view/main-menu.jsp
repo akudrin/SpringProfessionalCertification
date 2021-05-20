@@ -14,9 +14,11 @@
 <h2>hello</h2>
 <img src="${pageContext.request.contextPath}/resources/images/logo.svg" />
     <hr>
-    <a href="showForm">Hello World Form</a>
+    <a href="hello/showForm">Hello World Form</a>
     <br><br>
-
-<input type="button" onclick="doSomeWork()" value="Click Me"/>
+	<a href="student/showForm">Student Form</a>
+	<br><br>
+	<input type="button" onclick="doSomeWork()" value="Click Me"/>
+	<br><br>
 </body>
 </html>
