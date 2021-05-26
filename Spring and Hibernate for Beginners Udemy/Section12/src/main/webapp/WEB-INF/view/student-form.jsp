@@ -18,7 +18,8 @@
 		<br>
 	
 		Last name: <form:input path="lastName" />
-			
+		<br>
+		<br>
 		Country:
 		
 		<%-- <form:select path="country">
