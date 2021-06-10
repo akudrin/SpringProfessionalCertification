@@ -1,5 +1,7 @@
 package con.akudrin.hibernate.demo;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -21,7 +23,9 @@ public class CreateStudentDemo {
 
 			// create student object
 			System.out.println("Creating new student object...");
-			Student tempStudent = new Student("Paul", "Wall", "love@love.com");
+			String theDateOfBirthStr = "31/12/1998";
+			Date theDateOfBirth = DateUtils.parseDate(theDateOfBirthStr);
+			Student tempStudent = new Student("Paul", "Wall", "love@love.com", theDateOfBirth);
 			// start transaction
 			session.beginTransaction();
 			// save the student object
@@ -31,6 +35,8 @@ public class CreateStudentDemo {
 			session.getTransaction().commit();
 			System.out.println("Done!");
 
+		} catch (Exception exc) {
+			exc.printStackTrace();
 		} finally {
 			factory.close();
 		}
