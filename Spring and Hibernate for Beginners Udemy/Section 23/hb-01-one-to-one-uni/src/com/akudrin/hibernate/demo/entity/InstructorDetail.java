@@ -1,10 +1,12 @@
 package com.akudrin.hibernate.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +24,9 @@ public class InstructorDetail {
 	// generate getter/setter methods
 
 	// generate toString() method
+	@OneToOne(mappedBy = "instructorDetail", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
+	private Instructor instructor;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,6 +75,14 @@ public class InstructorDetail {
 	@Override
 	public String toString() {
 		return "InstructorDetail [id=" + id + ", youtubeChannel=" + youtubeChannel + ", hobby=" + hobby + "]";
+	}
+
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
 	}
 
 }
