@@ -2,12 +2,19 @@ package services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import repositories.ProductRepository;
 
 @Service
 public class ProductService {
+
+	/**
+	 * PROPAGATION LEVELS: REQUIRED (DEFAULT), MANDATORY, NEVER,
+	 * SUPPORTS,NOT_SUPPORTED,NESTED
+	 * 
+	 */
 
 	@Autowired
 	private ProductRepository productRepository;
@@ -28,4 +35,12 @@ public class ProductService {
 			e.printStackTrace();
 		}
 	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void addTenProducts() {
+		for (int i = 1; i <= 10; i++) {
+			productRepository.addProduct("Product " + i, i * 2);
+		}
+	}
+
 }
