@@ -2,7 +2,7 @@ package services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import repositories.ProductRepository;
@@ -36,7 +36,15 @@ public class ProductService {
 		}
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	/*
+	 * DEFAULT -> READ_COMMITED
+	 * 
+	 * READ_UNCOMMITED, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE
+	 * 
+	 * PROBLEMS: --dirty reads --repeatable reads --phantom reads
+	 */
+
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	public void addTenProducts() {
 		for (int i = 1; i <= 10; i++) {
 			productRepository.addProduct("Product " + i, i * 2);

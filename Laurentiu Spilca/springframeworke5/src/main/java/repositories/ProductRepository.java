@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-//all methods are affected by this transactional
+//all methods in the class are affected by this transactional
 @Transactional
 public class ProductRepository {
 
